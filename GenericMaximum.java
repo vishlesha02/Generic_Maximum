@@ -1,40 +1,65 @@
 package Day9;
+
 import java.util.Scanner;
+
 public class GenericMaximum {
-    
-    public void compare() {
+
+        public static <V extends Comparable<V>> V maximum(V a, V b, V c) {
+
+            V max = a;
+
+            if (b.compareTo(max) > 0)
+                max = b;
+
+            if (c.compareTo(max) > 0)
+                max = c;
+
+            return max;
+        }
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter String 1 : ");
-        String a = sc.nextLine();
 
-        System.out.println("Enter String 2 : ");
-        String b = sc.nextLine();
+        public void findMax(int n) {
+            if (n == 1) {
+                System.out.print("Enter first Number = ");
+                int number1 = sc.nextInt();
+                System.out.print("Enter second Number = ");
+                int number2 = sc.nextInt();
+                System.out.print("Enter third Number= ");
+                int number3 = sc.nextInt();
+                System.out.println("The maximum value is of : " + maximum("Number 1 : " + number1, "Number 2 : " + number2, "Number 3 : " + number3));
+            } else if (n == 2) {
+                System.out.print("Enter first Number = ");
+                float number1 = sc.nextFloat();
+                System.out.print("Enter second Number = ");
+                float number2 = sc.nextFloat();
+                System.out.print("Enter third Number = ");
+                float number3 = sc.nextFloat();
+                System.out.println("The maximum value is of : " + maximum("Number 1 : " + number1, "Number 2 : " + number2, "Number 3 : " + number3));
+            } else if (n == 3) {
+                System.out.print("Enter first String = ");
+                String name1 = sc.next();
+                System.out.print("Enter second String = ");
+                String name2 = sc.next();
+                System.out.print("Enter third String = ");
+                String name3 = sc.next();
+                System.out.println("The maximum value is of : " + maximum("String 1 : " + name1, "String 2 : " + name2, "Stirng 3 : " + name3));
 
-        System.out.println("Enter String 3 : ");
-        String c = sc.nextLine();
-
-        int num1=a.compareTo(b);
-        int num2=b.compareTo(c);
-        int num3=c.compareTo(a);
-
-        if ( num1 > num2 && num1 > num3 ) {
-            System.out.println("The Biggest String is String 1: " + a);
+            }
         }
-        else if(num2> num1 && num2 > num3){
-            System.out.println("The Biggest String is String 2: " + b);
-        }
-        else if(num3 > num1 && num3 > num2)
-        {
-            System.out.println("The Biggest String is String 3: " + c);
-        }
-    }
-    
-    public static class Maximum {
+
         public static void main(String[] args) {
 
             GenericMaximum t = new GenericMaximum();
-            t.compare();
+            Scanner sc = new Scanner(System.in);
+            while (true) {
+                System.out.println("Enter the following number to perform operations : \n 1 for int \n 2 for float \n 3 for String \n Press any Number to stop");
+                int n = sc.nextInt();
+                if (n == 1 || n == 2 || n == 3) {
+                    t.findMax(n);
+                } else {
+                    break;
+                }
+            }
         }
-    }
     }
