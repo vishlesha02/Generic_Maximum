@@ -2,11 +2,17 @@ package Day9;
 
 import java.util.Scanner;
 
-public class GenericMaximum {
+    public class GenericMaximum <T> {
+        public T a;
+        public T b;
+        public T c;
 
-        public static <V extends Comparable<V>> V maximum(V a, V b, V c) {
+        public <T extends Comparable<T>> T TestMaximumUC5(T a, T b, T c) {
 
-            V max = a;
+            T x = a;
+            T y = b;
+            T z = c;
+            T max = a;
 
             if (b.compareTo(max) > 0)
                 max = b;
@@ -21,29 +27,23 @@ public class GenericMaximum {
 
         public void findMax(int n) {
             if (n == 1) {
-                System.out.print("Enter first Number = ");
+                System.out.println("Enter three integer");
                 int number1 = sc.nextInt();
-                System.out.print("Enter second Number = ");
                 int number2 = sc.nextInt();
-                System.out.print("Enter third Number= ");
                 int number3 = sc.nextInt();
-                System.out.println("The maximum value is of : " + maximum("Number 1 : " + number1, "Number 2 : " + number2, "Number 3 : " + number3));
+                System.out.println("The maximum value is : " + TestMaximumUC5(number1, number2, number3));
             } else if (n == 2) {
-                System.out.print("Enter first Number = ");
-                float number1 = sc.nextFloat();
-                System.out.print("Enter second Number = ");
-                float number2 = sc.nextFloat();
-                System.out.print("Enter third Number = ");
-                float number3 = sc.nextFloat();
-                System.out.println("The maximum value is of : " + maximum("Number 1 : " + number1, "Number 2 : " + number2, "Number 3 : " + number3));
+                System.out.println("Enter three float");
+                float num1 = sc.nextFloat();
+                float num2 = sc.nextFloat();
+                float num3 = sc.nextFloat();
+                System.out.println("The maximum value is : " + TestMaximumUC5(num1, num2, num3));
             } else if (n == 3) {
-                System.out.print("Enter first String = ");
+                System.out.println("Enter three integer");
                 String name1 = sc.next();
-                System.out.print("Enter second String = ");
                 String name2 = sc.next();
-                System.out.print("Enter third String = ");
                 String name3 = sc.next();
-                System.out.println("The maximum value is of : " + maximum("String 1 : " + name1, "String 2 : " + name2, "Stirng 3 : " + name3));
+                System.out.println("The maximum value is : " + TestMaximumUC5(name1, name2, name3));
 
             }
         }
